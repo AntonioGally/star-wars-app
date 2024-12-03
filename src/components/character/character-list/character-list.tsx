@@ -20,7 +20,7 @@ const CharacterList = () => {
         return <p className="mt-4">Error: {error.message}</p>;
 
     return (
-        <div className="max-w-[1370px] mx-auto mt-14">
+        <div className="mt-14">
             <div className="flex flex-wrap gap-x-4 gap-y-4 md:justify-start justify-center">
                 {data?.map((character) => (
                     <CharacterCard

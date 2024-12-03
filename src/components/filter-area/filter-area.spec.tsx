@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
 import '@testing-library/jest-dom';
-import { render, screen } from "@testing-library/react";
+import { render } from "@testing-library/react";
 import { Provider } from "react-redux";
 import configureStore from "redux-mock-store";
 import FilterArea from "./filter-area";
@@ -37,7 +37,7 @@ describe('FilterArea', () => {
     }
 
     it('renders correctly', () => {
-        renderWithProviders(<FilterArea />, { reduxState: initialState });
+        const screen = renderWithProviders(<FilterArea />, { reduxState: initialState });
 
         expect(screen.getByTestId('search-label')).toBeInTheDocument();
         expect(screen.getByTestId('filters-button')).toBeInTheDocument();

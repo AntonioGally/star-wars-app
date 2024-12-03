@@ -1,8 +1,11 @@
+// Libs
 import { PropsWithChildren, useMemo } from "react";
-import { Dialog, DialogContent, DialogHeader, DialogTrigger, DialogDescription, DialogTitle } from "../ui/dialog";
+// Components
+import { Dialog, DialogContent, DialogHeader, DialogTrigger, DialogDescription, DialogTitle } from "@/components/ui/dialog";
+import { Skeleton } from "@/components/ui/skeleton";
+import { Badge } from "@/components/ui/badge";
+// Scripts
 import { useGetCharacter, useGetCharacterInfo, useGetPlanet } from "@/api";
-import { Skeleton } from "../ui/skeleton";
-import { Badge } from "../ui/badge";
 
 const CharacterModal = ({ children, name }: PropsWithChildren<{ name: string }>) => {
 

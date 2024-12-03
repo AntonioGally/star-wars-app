@@ -1,7 +1,10 @@
+// Scripts
 import { useGetCharacterInfo } from "@/api";
+// Icons
 import { Calendar, Car, Rocket } from "lucide-react"
-import { Skeleton } from "../ui/skeleton";
-import CharacterModal from "./character-modal";
+// Components
+import { Skeleton } from "@/components/ui/skeleton";
+import CharacterModal from "../character-modal/character-modal";
 
 interface CharacterCardProps {
     birth_year: string;

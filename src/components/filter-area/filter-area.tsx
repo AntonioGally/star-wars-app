@@ -1,16 +1,21 @@
-import { ListFilter } from "lucide-react";
+// Libs
 import { debounce } from 'lodash';
-import { Button } from "../ui/button";
-import { Input } from "../ui/input"
-import { Label } from "../ui/label"
-import { setHomeworld, setSearchTerm, setSpecies, setStarships } from "@/store/slices/filterSlice";
 import { useCallback } from "react";
 import { useDispatch, useSelector } from "react-redux";
+// Icons
+import { ListFilter } from "lucide-react";
+// Components
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input"
+import { Label } from "@/components/ui/label"
 import {
     Popover,
     PopoverContent,
     PopoverTrigger,
 } from "@/components/ui/popover"
+// Redux
+import { setHomeworld, setSearchTerm, setSpecies, setStarships } from "@/store/slices/filterSlice";
+// Types
 import { ActionCreatorWithPayload } from "@reduxjs/toolkit";
 import { RootState } from "@/store";
 

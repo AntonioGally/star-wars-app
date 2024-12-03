@@ -1,6 +1,8 @@
-import CharacterCard from "../character-card";
+// Components
+import CharacterCard from "../character-card/character-card";
 import { Button } from "../../ui/button";
-import { LoadingState } from "../loading-state";
+import { LoadingState } from "../loading-state/loading-state";
+// Hooks
 import useListData from "./hooks/use-list-data";
 
 const CharacterList = () => {

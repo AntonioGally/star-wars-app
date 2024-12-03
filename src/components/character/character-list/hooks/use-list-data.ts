@@ -1,7 +1,9 @@
-import { useGetCharacter, useGetPlanetByName, useGetSpeciesByName, useGetStarshipsByName } from "@/api";
+// Libs
 import { RootState } from "@/store";
 import { useMemo } from "react"
 import { useSelector } from "react-redux";
+// Script
+import { useGetCharacter, useGetPlanetByName, useGetSpeciesByName, useGetStarshipsByName } from "@/api";
 
 const useListData = () => {
     const searchTerm = useSelector((state: RootState) => state.filter.searchTerm);

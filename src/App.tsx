@@ -1,4 +1,4 @@
-import CharacterList from "./components/character/character-list"
+import CharacterList from "./components/character/character-list/character-list"
 import FilterArea from "./components/filter-area/filter-area"
 import HeaderTitle from "./components/header-title/header-title"
 

@@ -1,7 +1,5 @@
 // Libs
-import { debounce } from 'lodash';
-import { useCallback } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 // Icons
 import { ListFilter } from "lucide-react";
 // Components
@@ -16,29 +14,23 @@ import {
 // Redux
 import { setHomeworld, setSearchTerm, setSpecies, setStarships } from "@/store/slices/filterSlice";
 // Types
-import { ActionCreatorWithPayload } from "@reduxjs/toolkit";
 import { RootState } from "@/store";
+import useSearch from './hooks/use-search';
 
 const FilterArea = () => {
-    const dispatch = useDispatch();
     const { homeworld, species, starships } = useSelector((state: RootState) => state.filter.filters);
 
-    const handleSearch = useCallback(
-        debounce((query: string, action: ActionCreatorWithPayload<string, string>) => {
-            dispatch(action(query));
-        }, 300),
-        []
-    );
+    const { handleSearch } = useSearch();
 
     return (
         <div className="flex flex-col max-w-[550px] w-full mt-6">
-            <Label className="mb-1">Search by the name</Label>
+            <Label data-testid="search-label" className="mb-1">Search by the name</Label>
             <div className="flex flex-col md:flex-row md:items-center">
-                <Input autoFocus type="text" onChange={(e) => handleSearch(e.target.value, setSearchTerm)} />
+                <Input autoFocus data-testid='search-name-input' type="text" onChange={(e) => handleSearch(e.target.value, setSearchTerm)} />
                 <div className="flex mt-2 md:mt-0 items-center">
                     <Popover>
                         <PopoverTrigger asChild>
-                            <Button className="ml-3" variant={'outline'}><ListFilter />Filters</Button>
+                            <Button data-testid='filters-button' className="ml-3" variant={'outline'}><ListFilter />Filters</Button>
                         </PopoverTrigger>
                         <PopoverContent className="w-80">
                             <div className="grid gap-4">

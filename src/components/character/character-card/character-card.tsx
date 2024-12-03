@@ -1,5 +1,6 @@
 // Scripts
 import { useGetCharacterInfo } from "@/api";
+import { formatDescription } from "./utils/format-description";
 // Icons
 import { Calendar, Car, Rocket } from "lucide-react"
 // Components
@@ -17,13 +18,6 @@ interface CharacterCardProps {
 
 const CharacterCard = (props: CharacterCardProps) => {
     const { data, isPending } = useGetCharacterInfo(props.name)
-
-    function formatDescription(description: string) {
-        if (description.length > 100) {
-            return description.substring(0, 100) + '...';
-        }
-        return description;
-    }
 
     return (
         <CharacterModal name={props.name}>

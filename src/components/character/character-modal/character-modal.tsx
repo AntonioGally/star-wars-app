@@ -35,7 +35,7 @@ const CharacterModal = ({ children, name }: PropsWithChildren<{ name: string }>)
 
             <DialogContent>
                 <DialogHeader>
-                    <DialogTitle>{name}</DialogTitle>
+                    <DialogTitle data-testid='character-name-title'>{name}</DialogTitle>
                     <DialogDescription>
                         Character details
                     </DialogDescription>
@@ -43,8 +43,8 @@ const CharacterModal = ({ children, name }: PropsWithChildren<{ name: string }>)
 
                 <div>
                     <div className="flex items-start gap-x-4 flex-col md:flex-row">
-                        {infoPending && <Skeleton className="h-[300px] w-[220px] shrink-0" />}
-                        {characterInfo?.image && <img src={characterInfo.image} alt={name} className="h-[300px] w-[220px] object-cover shrink-0 rounded" />}
+                        {infoPending && <Skeleton data-testid='image-skeleton' className="h-[300px] w-[220px] shrink-0" />}
+                        {characterInfo?.image && <img data-testid="character-image" src={characterInfo.image} alt={name} className="h-[300px] w-[220px] object-cover shrink-0 rounded" />}
                         {!infoPending && !characterInfo?.image && <div className="h-[300px] w-[220px] rounded bg-slate-200 shrink-0" />}
                         <div className="flex flex-col">
                             <div>
@@ -52,30 +52,30 @@ const CharacterModal = ({ children, name }: PropsWithChildren<{ name: string }>)
                                     Character information
                                 </h4>
                                 <div className="flex flex-wrap gap-x-2 gap-y-2">
-                                    <Badge>{getCharacterData?.height} cm</Badge>
-                                    <Badge>{getCharacterData?.mass} Kg</Badge>
-                                    <Badge>{getCharacterData?.gender}</Badge>
-                                    <Badge>Born in {getCharacterData?.birth_year}</Badge>
-                                    <Badge>{getCharacterData?.films?.length} Films</Badge>
+                                    <Badge data-testid="character-height-badge">{getCharacterData?.height} cm</Badge>
+                                    <Badge data-testid="character-mass-badge">{getCharacterData?.mass} Kg</Badge>
+                                    <Badge data-testid="character-gender-badge">{getCharacterData?.gender}</Badge>
+                                    <Badge data-testid="character-birth-year-badge">Born in {getCharacterData?.birth_year}</Badge>
+                                    <Badge data-testid="character-films-badge">{getCharacterData?.films?.length} Films</Badge>
                                 </div>
                             </div>
                             <div>
                                 <h4 className="scroll-m-20 text-xl font-semibold tracking-tight m-0 mt-4 mb-2">
                                     Planet information
                                 </h4>
-                                {planetPending ? <Skeleton className="h-4 w-full" /> : (
+                                {planetPending ? <Skeleton data-testid='planet-skeleton' className="h-4 w-full" /> : (
                                     <div className="flex flex-wrap gap-x-2 gap-y-2">
-                                        <Badge>{planetData?.name}</Badge>
-                                        <Badge>{planetData?.climate}</Badge>
-                                        <Badge>{Number(planetData?.population || 0).toLocaleString('en-US')} people</Badge>
-                                        <Badge>{planetData?.terrain}</Badge>
+                                        <Badge data-testid="planet-name-badge">{planetData?.name}</Badge>
+                                        <Badge data-testid="planet-climate-badge">{planetData?.climate}</Badge>
+                                        <Badge data-testid="planet-population-badge">{Number(planetData?.population || 0).toLocaleString('en-US')} people</Badge>
+                                        <Badge data-testid="planet-terrain-badge">{planetData?.terrain}</Badge>
                                     </div>
                                 )}
                             </div>
                         </div>
                     </div>
                     <p className="mt-3 text-sm">
-                        {infoPending && <Skeleton className="h-4 w-full" />}
+                        {infoPending && <Skeleton data-testid='description-skeleton' className="h-4 w-full" />}
                         {characterInfo?.description && characterInfo.description}
                         {!infoPending && !characterInfo?.description && "No description provided"}
                     </p>

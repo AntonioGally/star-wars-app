@@ -1,10 +1,14 @@
-import { Button } from "./components/ui/button"
+import CharacterList from "./components/character/character-list"
+import FilterArea from "./components/filter-area/filter-area"
+import HeaderTitle from "./components/header-title/header-title"
 
 function App() {
   return (
-    <>
-      <Button>Oi click</Button>
-    </>
+    <div className="p-4 lg:p-6">
+      <HeaderTitle />
+      <FilterArea />
+      <CharacterList />
+    </div>
   )
 }
 

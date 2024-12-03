@@ -1,4 +1,6 @@
+import { useGetCharacterInfo } from "@/api";
 import { Calendar, Car, Rocket } from "lucide-react"
+import { Skeleton } from "../ui/skeleton";
 
 interface CharacterCardProps {
     birth_year: string;
@@ -10,6 +12,7 @@ interface CharacterCardProps {
 }
 
 const CharacterCard = (props: CharacterCardProps) => {
+    const { data, isPending } = useGetCharacterInfo(props.name)
 
     function formatDescription(description: string) {
         if (description.length > 100) {
@@ -19,7 +22,7 @@ const CharacterCard = (props: CharacterCardProps) => {
     }
 
     return (
-        <div className="w-[200px] rounded border border-[#0F172A] cursor-pointer">
+        <div className="w-[260px] h-[390px] rounded border border-[#0F172A] cursor-pointer flex flex-col">
             <div className="flex items-center justify-between py-2 px-3 ">
                 <div className="flex items-center gap-x-1">
                     <Calendar size={16} />
@@ -37,17 +40,21 @@ const CharacterCard = (props: CharacterCardProps) => {
                 </div>
             </div>
 
-            {/* <img src={props.image} alt={props.name} className="w-full h-[180px] object-cover" /> */}
-            <img src={"https://lumiere-a.akamaihd.net/v1/images/luke-skywalker-main_fb34a1ff.jpeg"} alt={props.name} className="w-full h-[180px] object-cover" />
+            {isPending && <Skeleton className="h-[180px] w-full shrink-0" />}
+            {data?.image && <img src={data.image} alt={props.name} className="w-full h-[180px] object-cover shrink-0" />}
+            {!isPending && !data?.image && <div className="h-[180px] w-full rounded bg-slate-200 shrink-0" />}
 
-            <div className="py-2 px-3 ">
-                <h4 className="scroll-m-20 text-xl font-semibold tracking-tight m-0 mb-1">
-                    {props.name}
-                </h4>
-                <p className="mb-2">
-                    {/* {formatDescription(props.description)} */}
-                    {formatDescription(`Luke Skywalker was a Tatooine farmboy who rose from humble beginnings to become one of the greatest Jedi the galaxy has ever known. Along with his friends Princess Leia and Han Solo, Luke battled the evil Empire, discovered the truth of his parentage, and ended the tyranny of the Sith. A generation later, the location of the famed Jedi master was one of the galaxy’s greatest mysteries. Haunted by Ben Solo’s fall to evil and convinced the Jedi had to end, Luke sought exile on a distant world, ignoring the galaxy’s pleas for help. But his solitude would be interrupted – and Luke Skywalker had one final, momentous role to play in the struggle between good and evil."`)}
-                </p>
+            <div className="py-2 px-3 flex flex-col justify-between h-full">
+                <div>
+                    <h4 className="scroll-m-20 text-xl font-semibold tracking-tight m-0 mb-1">
+                        {props.name}
+                    </h4>
+                    <p className="mb-2">
+                        {isPending && <Skeleton className="h-4 w-full" />}
+                        {data?.description && formatDescription(data.description)}
+                        {!isPending && !data?.description && "No description provided"}
+                    </p>
+                </div>
                 <div className="flex items-center gap-x-2">
                     <span className="text-sm">{props.height} cm</span>
                     <span className="text-sm">{props.mass} Kg</span>

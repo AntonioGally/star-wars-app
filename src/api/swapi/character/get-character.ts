@@ -28,7 +28,7 @@ interface PeopleResponse {
 }
 
 const fetchPeople = async (page: number, search?: string): Promise<PeopleResponse> => {
-    const { data } = await swapiInstance.get('/people/', {
+    const { data } = await swapiInstance.get('/people', {
         params: { page, search },
     });
     return data;
@@ -37,7 +37,7 @@ const fetchPeople = async (page: number, search?: string): Promise<PeopleRespons
 export const useGetCharacter = (searchTerm?: string) => {
     return useInfiniteQuery({
         queryKey: ['people', searchTerm],
-        queryFn: ({ pageParam = 1 }) => fetchPeople(pageParam),
+        queryFn: ({ pageParam = 1 }) => fetchPeople(pageParam, searchTerm),
         initialPageParam: 1,
         getNextPageParam: (lastPage) => {
             if (!lastPage.next) return undefined;

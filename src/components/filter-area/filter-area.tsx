@@ -30,7 +30,7 @@ const FilterArea = () => {
                 <div className="flex mt-2 md:mt-0 items-center">
                     <Popover>
                         <PopoverTrigger asChild>
-                            <Button data-testid='filters-button' className="ml-3" variant={'outline'}><ListFilter />Filters</Button>
+                            <Button data-testid='filters-button' className="md:ml-3" variant={'outline'}><ListFilter />Filters</Button>
                         </PopoverTrigger>
                         <PopoverContent className="w-80">
                             <div className="grid gap-4">

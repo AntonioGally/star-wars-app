@@ -21,20 +21,22 @@ const CharacterList = () => {
 
     return (
         <div className="mt-14">
-            <div className="flex flex-wrap gap-x-4 gap-y-4 md:justify-start justify-center">
+            <div className="grid grid-cols-1 md:grid-cols-5 gap-y-4">
                 {data?.map((character) => (
-                    <CharacterCard
-                        key={character.name}
-                        birth_year={character.birth_year}
-                        vehicles={character.vehicles}
-                        starships={character.starships}
-                        name={character.name}
-                        mass={character.mass}
-                        height={character.height}
-                    />
+                    <div className="flex justify-center">
+                        <CharacterCard
+                            key={character.name}
+                            birth_year={character.birth_year}
+                            vehicles={character.vehicles}
+                            starships={character.starships}
+                            name={character.name}
+                            mass={character.mass}
+                            height={character.height}
+                        />
+                    </div>
                 ))}
             </div>
-            <div className="w-full flex justify-end mt-3">
+            <div className="w-full flex justify-center md:justify-end mt-3">
                 {hasNextPage && (
                     <Button
                         onClick={() => fetchNextPage()}

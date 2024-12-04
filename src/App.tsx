@@ -4,7 +4,7 @@ import HeaderTitle from "./components/header-title/header-title"
 
 function App() {
   return (
-    <div className="p-4 lg:p-6 max-w-[1370px] mx-auto">
+    <div className="p-4 lg:p-6 max-w-[1400px] mx-auto">
       <HeaderTitle />
       <FilterArea />
       <CharacterList />

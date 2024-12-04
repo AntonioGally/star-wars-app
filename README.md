@@ -16,7 +16,7 @@
     Star Wars characters list with filters
     <br />
     <br />
-    <a href="https://star-wars-app.antoniogally.com/">View Demo</a>
+    <a href="https://starwars-app.antoniogally.com/">View Demo</a>
     ·
     <a href="https://github.com/AntonioGally/star-wars-app/issues/new">Report Bug</a>
     ·
@@ -70,7 +70,7 @@ The rest of the app is well organized, divided in dumb-components and custom hoo
 
 But that's it! I'd love your feedback :D
 
-[![StarWarsApp][product-screenshot]](https://star-wars-app.antoniogally.com/)
+[![StarWarsApp][product-screenshot]](https://starwars-app.antoniogally.com/)
 
 ### Built With
 
@@ -150,7 +150,7 @@ Don't forget to give the project a star! Thanks again!
 
 Antonio Gally - antonio.gally@gmail.com
 
-Project Link: [https://star-wars-app.antoniogally.com/](https://star-wars-app.antoniogally.com/)
+Project Link: [https://starwars-app.antoniogally.com/](https://starwars-app.antoniogally.com/)
 
 
 <!-- MARKDOWN LINKS & IMAGES -->
